@@ -7,8 +7,10 @@ import org.hibernate.SessionFactory;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class UserDaoHibernateImpl implements UserDao {
+    Logger log = Logger.getGlobal();
 
     SessionFactory sessionFactory;
     {
@@ -46,11 +48,8 @@ public class UserDaoHibernateImpl implements UserDao {
     @Override
     public void saveUser(String name, String lastName, byte age) {
         try (Session session = sessionFactory.getCurrentSession()) {
-            User user = new User();
+            User user = new User(name, lastName, age);
             session.beginTransaction();
-            user.setName(name);
-            user.setLastName(lastName);
-            user.setAge(age);
             session.save(user);
             session.getTransaction().commit();
         }

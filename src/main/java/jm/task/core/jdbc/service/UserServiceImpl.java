@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public void saveUser(String name, String lastName, byte age) {
-        log.info("save user");
+        log.info("save user ");
         userDao.saveUser(name, lastName, age);
     }
 
