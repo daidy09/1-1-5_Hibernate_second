@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 
 public class UserServiceImpl implements UserService {
     private static final Logger log = Logger.getGlobal();
+
     private static final UserDao userDao = new UserDaoHibernateImpl();
 
     public void createUsersTable() {
@@ -19,7 +20,6 @@ public class UserServiceImpl implements UserService {
     public void dropUsersTable() {
         log.info("drop table");
         userDao.dropUsersTable();
-
     }
 
     public void saveUser(String name, String lastName, byte age) {

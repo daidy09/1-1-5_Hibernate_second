@@ -7,10 +7,8 @@ import org.hibernate.SessionFactory;
 
 import java.sql.SQLException;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class UserDaoHibernateImpl implements UserDao {
-    Logger log = Logger.getGlobal();
 
     SessionFactory sessionFactory;
     {
