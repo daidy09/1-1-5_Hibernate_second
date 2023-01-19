@@ -7,9 +7,11 @@ import org.hibernate.SessionFactory;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class UserDaoHibernateImpl implements UserDao {
-
+    private static final Logger logger = Logger.getLogger("INFO LOGGER");
     SessionFactory sessionFactory;
     {
         try {
@@ -49,6 +51,7 @@ public class UserDaoHibernateImpl implements UserDao {
             User user = new User(name, lastName, age);
             session.beginTransaction();
             session.save(user);
+            logger.log(Level.INFO, "user с именем {0} добавлен в базу", new String[]{user.getName()});
             session.getTransaction().commit();
         }
     }
