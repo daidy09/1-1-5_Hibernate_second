@@ -16,9 +16,7 @@ public class UserDaoHibernateImpl implements UserDao {
     {
         try {
             sessionFactory = Util.getSessionFactory();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
